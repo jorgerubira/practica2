@@ -1,6 +1,6 @@
-CREATE DATABASE personas;
+CREATE DATABASE modulo3_personas;
 
-USE personas;
+USE modulo3_personas;
 
 CREATE TABLE personas(id int primary key auto_increment, nombre varchar(200));
 
