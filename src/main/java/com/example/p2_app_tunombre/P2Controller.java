@@ -8,6 +8,7 @@ package com.example.p2_app_tunombre;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class P2Controller {
+    
+    @Autowired
+    private Environment environment;    
     
     @Value(value = "${alumno}")
     private String alumno;
@@ -29,6 +33,9 @@ public class P2Controller {
     public String listado(Model m){
         m.addAttribute("alumno", alumno);
         m.addAttribute("port", port);
+        if (environment.getActiveProfiles().length>0){
+            m.addAttribute("profile", environment.getActiveProfiles()[0]);
+        }
         return "listado";
     }
     

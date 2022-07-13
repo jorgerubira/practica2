@@ -87,8 +87,8 @@ and open the template in the editor.
                 </thead>    
             </table>         
             <hr/>
-            <footer class="text-right">
-                <b>Puerto interno:</b> <span th:text="${port}"></span> - <b>URL</b>: <span id="puerto"></span>
+            <footer class="text-right"> 
+                <b>Puerto interno:</b> <span th:text="${port}"></span> - <b>URL</b>: <span id="puerto"></span> <b th:if="${profile!=null}"> - Perfil :</b> <span th:text="${profile}"></span>
             </footer>
 
         </div>
